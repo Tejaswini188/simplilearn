@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    
+    <!--CONNECTION OR CONFIGURATION OF DATA WITH WHICH U GONNA PREPARE THE TABLE IN DATABASE  -->
+    
+    <hibernate-mapping package="com.Learner.demo">
+    
+    <class name="StudentDetails" table="student">
+    
+    <id name="ID" type="long" column="ID">
+    <generator class="increment"></generator>
+    </id>
+    
+	<property name="sname" type="string"></property>
+	<property name="fname" type="string" ></property>
+	<property name="lname" type="string"></property>
+	<property name="gender" type="string"></property>
+	<property name="dob" type="string"></property>
+	<property name="doj" type="string"></property>
+	<property name="clas" type="string"></property>
+	<property name="fees" type="big_decimal"></property>
+	<property name="address" type="string"></property>
+	
+    
+    </class>
+    
+    
+    </hibernate-mapping>
