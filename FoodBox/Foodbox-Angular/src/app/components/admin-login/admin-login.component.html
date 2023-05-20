@@ -1,0 +1,13 @@
+<div class="col-md-5 offset-md-3 shadow-lg mt-5 p-5 text-primary text-center1"
+style="background-color: rgb(88, 236, 236); border-radius: 35px;">
+<div class="text-center">
+<img src="./assets/images/logofoodbox.jpg" width="300px" height="200px"> </div>
+<form (ngSubmit)="loginSubmit()">
+    <h5 *ngIf="error!=''" style="color:red">{{error}}</h5>
+    <h2 class="text-center1 text-lg text-dark"> Username</h2>
+    <input [(ngModel)]="loginData.username" placeholder="Enter username" name="username" type="username" id="defaultForm-username" class="form-control validate"><br>
+    <h2 class="text-center1 text-dark"> Password </h2>
+    <input [(ngModel)]="loginData.password" placeholder="Enter password" name="password" type="password" id="defaultForm-pass" class="form-control validate"><br>
+    <button type="submit" class="btn btn-dark">Login</button>
+</form>
+</div>
