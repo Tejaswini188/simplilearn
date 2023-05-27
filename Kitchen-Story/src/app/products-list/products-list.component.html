@@ -1,0 +1,37 @@
+<!-- searchProducts -->
+<div class="collapse navbar-collapse" id="navbarColor02">
+  <form class="form-inline my-2 my-lg-0">
+    <input
+      type="text"
+      class="form-control mr-sm-2"
+      placeholder="Search..."
+      #key="ngModel"
+      ngModel
+      name="key"
+    />
+    <div>
+      <button type="button" (click)="searchProducts(key.value)">Search</button>
+    </div>
+    <div class="col-3">
+      <h4>Search Result:</h4>
+      <div class="card" *ngFor="let pro of product">
+        <img src="{{ pro.url }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ pro.product_name }}</h5>
+          <h6 class="card-text">${{ pro.msrp }}</h6>
+        </div>
+        <p
+          #pro.product_id="ngModel"
+          ngModel
+          ngDefaultControl
+          name="product_id"
+        ></p>
+        <button (click)="getProduct(pro.product_id)" class="btn btn-primary">
+          Add
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+

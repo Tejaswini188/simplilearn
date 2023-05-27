@@ -1,0 +1,43 @@
+<!-- add product -->
+<form>
+  <div class="form-group">
+    <label>Product name</label>
+    <input
+      type="text"
+      class="form-control"
+      #name="ngModel"
+      ngModel
+      name="name"
+    />
+    <div class="form-group">
+      <label>Product url</label>
+      <input
+        type="text"
+        class="form-control"
+        #url="ngModel"
+        ngModel
+        ngDefaultControl
+        name="url"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input
+      type="text"
+      class="form-control"
+      #msrp="ngModel"
+      ngModel
+      ngDefaultControl
+      name="msrp"
+    />
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="addProduct(name.value, url.value, msrp.value)"
+  >
+    Submit
+  </button>
+</form>

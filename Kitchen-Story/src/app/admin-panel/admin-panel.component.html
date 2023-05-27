@@ -1,0 +1,27 @@
+<nav>
+  <a href="/addProduct" class="btn btn-primary">Add product</a>
+
+</nav>
+<router-outlet></router-outlet>
+<!-- admin -->
+<div class="container">
+  <div class="row">
+    <div *ngFor="let product of products" class="col-3">
+      <div class="card">
+        <img src="{{ product?.url }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ product?.product_name }}</h5>
+          <h6 class="card-text">${{ product?.msrp }}</h6>
+          <p
+            #product.product_id="ngModel"
+            ngModel
+            ngDefaultControl
+            name="product_id"
+          ></p>
+          <button (click)="deleteProduct(product.product_id)">Delete</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

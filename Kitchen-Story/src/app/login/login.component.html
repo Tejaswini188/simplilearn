@@ -1,0 +1,33 @@
+<form>
+  <div>
+    <label>Admin Id:</label>
+    <input type="text" #id="ngModel" ngModel name="id" />
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        #password="ngModel"
+        ngModel
+        ngDefaultControl
+        name="password"
+      />
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="login(id.value, password.value)"
+  >
+    Login
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="changePassword(id.value, password.value)"
+  >
+    change password
+  </button>
+</form>
+<a href="admin">view products</a>
+<router-outlet></router-outlet>
