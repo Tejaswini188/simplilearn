@@ -1,0 +1,144 @@
+
+<div class="container">
+
+<p>Hi {{currentUser.username}}! Welcome to the administrator dashboard</p>  
+
+<nav class="navbar navbar-expand-lg navbar-light  w-100 navigation "  id="navbar" style="background-color: #e3f2fd;">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sub-main-navbar"
+      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="sub-main-navbar">
+    <ul class="navbar-nav mx-auto">
+        <!-- Financial Details -->
+    <li class="nav-item dropdown dropdown-slide">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-delay="350"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Financial Details.
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+        <li><a class="nav-link" routerLink="/orderdetails">Order Details</a></li>
+      </ul>
+    </li>
+    <!-- Financial Details -->
+    <!-- Genre -->
+    <li class="nav-item dropdown dropdown-slide">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-delay="350"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Genre Management.
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+        <li><a class="nav-link" routerLink="/addgenre">Add Genre</a></li>
+        <li><a class="nav-link" routerLink="/listgenre">Manage Genre</a></li>
+      </ul>
+    </li>
+    <!-- Genre -->
+
+    <!-- Movie -->
+    <li class="nav-item dropdown dropdown-slide">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-delay="350"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Movie Management.
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+        <li><a class="nav-link" routerLink="/addmovie">Add Movie</a></li>
+        <li><a class="nav-link" routerLink="/listmovie">Manage Movies</a></li>
+      </ul>
+    </li>
+    <!-- Movie -->
+
+      <!-- Show -->
+      <li class="nav-item dropdown dropdown-slide">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Show Management.
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+          <li><a class="nav-link" routerLink="/addshow">Add Show</a></li>
+          <li><a  class="nav-link" routerLink="/listshow">Manage Shows</a></li>
+        </ul>
+      </li>
+      <!-- Show -->
+
+       <!-- Clients -->
+       <li class="nav-item dropdown dropdown-slide">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-delay="350"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User Management.
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+          <li><a  class="nav-link" routerLink="/listusers">List of users</a></li>
+          <li><a  class="nav-link" routerLink="/listorders">List of Orders</a></li>
+          <li><a  class="nav-link" routerLink="/listpayments">List of Payments</a></li>
+        </ul>
+      </li>
+      <!-- Clients -->
+
+      <li class="nav-item">
+        
+        <a class="nav-link" routerLink="/resetpass">Reset Password</a>
+      </li>
+    </ul>
+    </div>
+   </nav>
+
+   <h4><strong>User Data </strong></h4> 
+   <table class="table">
+    <thead>
+      <tr >
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th> Address</th>
+        <th> City</th>
+        <th> Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngIf="userData">
+        <td>{{userData.firstname!}}</td>
+        <td>{{userData.lastname}}</td>
+        <td>{{userData.roles[0].name}}</td>
+        <td>{{userData.email}}</td>
+        <td>{{userData.address}}</td>
+        <td>{{userData.city}}</td>
+        <td>{{userData.country}}</td>
+      </tr>
+    </tbody>
+  </table>
+   
+
+<!--<h4><strong>Order Details</strong></h4> 
+   <table class="table" *ngIf="ordersById">
+    <thead>
+      <tr >
+        <th>ID</th>
+        <th>Ticket</th>
+        <th>Price</th>
+        <th>Sub-Total</th>
+        <th> Total</th>
+        <th> Quantity</th>
+        <th> Created Date</th>
+        <th> Pay Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let order of ordersById">
+        <td>{{order.id}}</td>
+        <td>{{order.productName}}</td>
+        <td>{{order.price}}</td>
+        <td>{{order.subtotal}}</td>
+        <td>{{order.total}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.created_at | date: 'dd/MM/yyyy'}}</td>
+         <button type="button" class="btn btn-link" ><a [routerLink]="['/paydetails', order.id]">Pay Details</a></button>
+        
+      </tr>
+    </tbody>
+  </table>-->
+   
+</div>
+<router-outlet></router-outlet>

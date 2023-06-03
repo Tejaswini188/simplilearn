@@ -1,0 +1,11 @@
+<div class="container">
+           <div class="row">
+            <div class="col-md-4" *ngIf="showList"><!--*ngFor="let show of showList"-->
+              <app-show-item [showItem]="showList"></app-show-item>
+            </div>
+          </div>
+      
+         
+      <router-outlet></router-outlet>
+    
+    

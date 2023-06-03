@@ -1,0 +1,43 @@
+<div class="container">
+    <h1 class="h3 mb-5 mt-3">Payment Page</h1>
+    <div class="row">
+      <!-- Left -->
+      <div class="col-lg-9">
+        <hr />
+       <div id="smart-button-container">
+    <div style="text-align: center;">
+      <div>
+        <button type="button"  [disabled]="clicked" (click)="paypalPayment(); clicked = true;">Pay with paypal</button>
+      </div>
+    </div>
+  </div>
+
+      </div>
+  
+      <!-- Right -->
+      <div class="col-lg-3">
+        <div class="card position-sticky top-0">
+          <div class="p-3 bg-light bg-opacity-10">
+            <h6 class="card-title mb-3">Order Summary</h6>
+            <div class="d-flex justify-content-between mb-1 small" *ngFor="let item of items">
+              <ul>
+                <li><span>Product Name</span> {{item.productName}}</li>
+                <li><span>Quantity</span> {{item.qty}}</li>
+                <li><span>Price</span> {{item.price}}</li>
+                <li><span>Subtotal</span> {{item.qty*item.price}}</li>
+              </ul>
+            </div>
+            <div *ngFor="let seat of seats">
+              <span>Seat Numbers {{seat}}</span> 
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between mb-4 small">
+              <span>TOTAL</span> <strong class="text-dark">{{cartTotal}}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

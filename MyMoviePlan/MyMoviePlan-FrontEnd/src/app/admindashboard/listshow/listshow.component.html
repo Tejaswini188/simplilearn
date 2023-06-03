@@ -1,0 +1,54 @@
+<div class="container">
+  
+    <div class="text-left">
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/admin']">Back to Admin</a></button>
+    </div>
+    
+    <div class="text-right">
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/addshow']">Add Show</a></button>
+    </div>
+
+<div class="container">
+       <table class="table" id=page>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Show</th>
+            <th>Movie</th>
+            <th>Theater</th>
+            <th>Screen</th>
+            <th>Seats</th>
+            <th>Price</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of showList">
+            <td  id="page td">{{list.id}}</td>
+            <td  id="page td">{{list.showname}}</td>
+            <td  id="page td">{{list.movie.moviename}}</td>
+             <td  id="page td">{{list.theater}}</td> 
+            <td  id="page td">{{list.screen}}</td> 
+            <td  id="page td">{{list.seatstatus}}</td>  
+            <td  id="page td">{{list.price}}</td>
+            <td  id="page td">{{list.time}}</td> 
+            <td  id="page td">{{list.duration}}</td> 
+            <td  id="page td">{{list.date}}</td> 
+            <td  id="page td">{{list.location}}</td>  
+            <td  id="page td">{{list.city}}</td>                          
+            <td  id="page td">                       
+              <button type="button" class="btn btn-link" ><a [routerLink]="['/editshow', list.id]">Edit</a></button>
+              <button type="button"  class="btn btn-link" (click)="deleteShow(list.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+     
+  <router-outlet></router-outlet>

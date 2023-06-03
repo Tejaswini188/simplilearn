@@ -1,0 +1,57 @@
+
+<div class="container">
+    <div align="center" *ngIf="paymentDetails">
+        <h1>Payment Done. Thank you for Booking a Ticket</h1>
+        <br/>
+        <div class="text-center">
+            <button type="button" class="btn btn-link" ><a [routerLink]="['/home']">Back to Home</a></button>
+        </div>
+        <h2>Receipt Details:</h2>
+        <table >
+            <tr>
+                <td><b>Merchant:</b></td>
+                <td>NMS Cinemas</td>
+            </tr>
+            <tr>
+                <td>Payer:</td>
+                <td>{{paymentDetails.firstName}} {{paymentDetails.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{{paymentDetails.email}}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{paymentDetails.description}}</td>
+            </tr>
+            <tr>
+                <td>Subtotal:</td>
+                <td>{{paymentDetails.subtotal}} USD</td>
+            </tr>
+                <tr>
+                <td>Tax:</td>
+                <td>{{paymentDetails.tax}} USD</td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td>{{paymentDetails.total}} USD</td>
+            </tr>	
+            <tr><td><br/></td></tr>
+                
+            <tr><td><br/></td></tr>
+            
+            <tr>
+                <td colspan="2" align="center">
+                    
+                </td>
+            </tr>		
+        </table>
+      
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    

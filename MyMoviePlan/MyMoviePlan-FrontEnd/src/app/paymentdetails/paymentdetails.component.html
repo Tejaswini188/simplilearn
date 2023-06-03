@@ -1,0 +1,37 @@
+
+<div class="container"  >
+    <h4><strong>User Data </strong></h4> 
+    <div class="text-left">
+    
+
+		<button type="button" class="btn btn-link" ><a [routerLink]="['/admin']" *ngIf="isAdmin">Back to Dashboard</a></button>
+    <button type="button" class="btn btn-link" ><a [routerLink]="['/user']" *ngIf="isUser">Back to Dashboard</a></button>
+	</div>
+    <table class="table">
+     <thead>
+       <tr >
+         <th>ID</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Ticket</th>
+         <th> Email</th>
+         <th> Tax</th>
+         <th> Amount Paid</th>
+         <th> Date Paid</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngIf="paymentByOrderId">
+         <td>{{paymentByOrderId.id}}</td>
+         <td>{{paymentByOrderId.firstname}}</td>
+         <td>{{paymentByOrderId.lastname}}</td>
+         <td>{{paymentByOrderId.description}}</td>
+         <td>{{paymentByOrderId.email}}</td>
+         <td>{{paymentByOrderId.tax}}</td>
+         <td>{{paymentByOrderId.total}}</td>
+         <td>{{paymentByOrderId.created_at | date: 'dd/MM/yyyy'}}</td>
+       </tr>
+     </tbody>
+   </table>
+
+</div>

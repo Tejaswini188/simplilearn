@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="text-left">
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/admin']">Back to Admin</a></button>
+    </div>
+
+    <div class="text-right">
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/addmovie']">Add Movie</a></button>
+    </div>
+
+<div class="container">
+       <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Movie</th>
+            <th>Description</th>
+            <th>Language</th>
+            <th>Genre</th>
+            <th>Movie Status</th>
+            <th> Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of movieList">
+            <td>
+              <img [src]="'data:image/jpeg;base64,'+list.data" [alt]="list.name">
+            </td>
+            <td>{{list.id}}</td>
+            <td>{{list.moviename}}</td>
+            <td>{{list.description}}</td> 
+            <td>{{list.language}}</td>
+            <td>{{list.genre.name}}</td> 
+            <td>{{list.moviestatus?"Enabled":"Disabled"}}</td>                       
+            <td>
+                       
+              <button type="button" class="btn btn-link" ><a [routerLink]="['/editmovie', list.id]">Edit</a></button>
+  
+              <button type="button" class="btn btn-link" (click)="deleteMovie(list.id)">Delete</button>
+
+              <button type="button" class="btn btn-link" (click)="statuChange(list.moviestatus,list.id)">Change Status</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+     
+  <router-outlet></router-outlet>

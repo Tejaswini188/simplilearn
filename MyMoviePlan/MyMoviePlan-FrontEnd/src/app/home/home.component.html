@@ -1,0 +1,141 @@
+<!--Carouse Slider-->
+<div class="container">
+
+      <!--Search Box-->
+
+      <div class="content" role="main">
+        <div class="card">
+          <div  class="form-outline">
+            <!--<label for="search-text">Search Text</label>-->
+            <input type="search" class="form-control" id="search-text" aria-describedby="search-text" 
+              [(ngModel)]="searchText" placeholder="Search {{radiovalue}}" 
+              autofocus  (keyup)="searchOnKeyUp($event)" >
+
+              <div class="form-check form-check-inline">
+              <input
+                mdbRadio
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="genre"
+                [(ngModel)]="radiovalue"              
+              />
+              <label class="form-check-label" for="inlineRadio1">Genre</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                mdbRadio
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="movie"
+                [(ngModel)]="radiovalue" 
+              />
+              <label class="form-check-label" for="inlineRadio2">Movie</label>
+            </div>  
+
+            <div class="form-check form-check-inline">
+              <input
+                mdbRadio
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="language"
+                [(ngModel)]="radiovalue" 
+              />
+              <label class="form-check-label" for="inlineRadio2">Language</label>
+            </div>  
+              
+          </div>
+          <!--<ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let c of images | filter: searchText"
+              appHighlight [searchedWord]="searchText" [content]="c"
+              [classToApply]="'font-weight-bold'" [setTitle]="false">
+              </li>
+            </ul>-->
+                  <!--[content]="c"-->  
+        </div>
+
+        <!--<input type="search" class="form-control rounded" aria-label="Search" aria-describedby="search-addon" (keyup)="searchOnKeyUp($event)"/>-->
+      </div>
+  <div class="row">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+  <div class="carousel-inner" *ngIf="movieList"><!--*ngIf="movieList"-->
+    <div class="carousel-item active" data-interval="2000" *ngIf="movieList[0]">
+
+      <!--<img [src]="'data:image/jpeg;base64,'+movieList.data" [alt]="movieList.name">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[0].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+    </div>
+    <div class="carousel-item" data-interval="2000" *ngIf="movieList[1]">
+      <!--<img src="{{slides[1].img}}" class="d-block w-100" alt="...">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[1].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+
+    </div>
+    <div class="carousel-item" data-interval="2000" *ngIf="movieList[2]">
+      <!--<img src="{{slides[2].img}}" class="d-block w-100" alt="...">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[2].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+
+    </div>
+    <div class="carousel-item" data-interval="2000" *ngIf="movieList[3]">
+      <!--<img src="{{slides[2].img}}" class="d-block w-100" alt="...">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[3].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+
+    </div>
+    <div class="carousel-item" data-interval="2000" *ngIf="movieList[4]">
+      <!--<img src="{{slides[2].img}}" class="d-block w-100" alt="...">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[4].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+
+    </div>
+    <div class="carousel-item" data-interval="2000" *ngIf="movieList[5]">
+      <!--<img src="{{slides[2].img}}" class="d-block w-100" alt="...">-->
+      <img src="{{'data:image/jpeg;base64,'+movieList[5].data}}" class="d-block w-100" alt="..." [attr.width]="'500px'" [attr.height]="'500px'">
+
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+
+
+</div>
+</div>
+
+  
+  <section class="category section pt-3 pb-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-6" *ngFor="let list of movieListByName">
+          <div class="cat-item mb-4 mb-lg-0">
+            
+          <a class="thumbnail" [routerLink]="['/moviedetails', list.moviename]">
+            <img src="{{'data:image/jpeg;base64,'+list.data}}" alt="" class="img-responsive">
+          </a>
+      
+            <div class="item-info">
+              <p class="mb-0">{{list.moviename +"-"+ list.genre.name}}</p>
+              <!--<h4 class="mb-4">up to <strong>50% </strong>off</h4>-->
+              <a class="read-more" class="thumbnail" [routerLink]="['/moviedetails', list.moviename]">Book Ticket</a>
+            </div>
+          </div>
+        </div>       
+
+      </div>
+    </div>
+  </section>
+    <hr>
+    <app-footer></app-footer>
+    
+  

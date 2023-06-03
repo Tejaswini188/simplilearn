@@ -1,0 +1,34 @@
+<div class="container">    
+    <h4><strong>Customer Details</strong></h4> 
+    <div class="text-left">
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/admin']">Back to Dashboard</a></button>
+    </div>
+    <table class="table" *ngIf="users">
+     <thead>
+       <tr >
+         <th>ID</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Address</th>
+         <th> City</th>
+         <th> Country</th>
+         <th>Email</th>
+  
+       </tr>
+     </thead>
+     <tbody>
+       <tr  *ngFor="let user of users">
+         <td>{{user.id}}</td>
+         <td>{{user.firstname}}</td>
+         <td>{{user.lastname}}</td>
+         <td>{{user.address}}</td>
+         <td>{{user.city}}</td>
+         <td>{{user.country}}</td>
+         <td>{{user.user.email}}</td>
+       
+         
+       </tr>
+     </tbody>
+    </table>
+    </div>
+    

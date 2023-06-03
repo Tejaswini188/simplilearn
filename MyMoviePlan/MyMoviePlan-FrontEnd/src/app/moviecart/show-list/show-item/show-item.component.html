@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-lg-6">
+<div class="card mb-4 shadow-sm">
+    <img class="bd-placeholder-img card-img-top p-2" width="100%" [src]="'data:image/jpeg;base64,'+showItem.movie.data" [alt]="showItem.movie.moviename"/>
+  
+    <div class="card-body">
+      <p class="card-text">
+        <strong>{{ showItem.price | currency:'USD' }}</strong>
+      </p>
+      <p class="card-text">{{ showItem.movie.moviename }}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <!--<button type="button" class="btn btn-sm btn-primary product-btn"(click)="handleAddToCart()" >Add to
+            Cart</button>-->
+           
+          <button type="button" class="btn btn-sm btn-outline-secondary product-btn">
+            
+            <a class="thumbnail" [routerLink]="['/moviedetails', showItem.movie.moviename]">View Details</a>
+          </button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  </div>
+  
+    <div class="col-lg-6">
+      <app-cart></app-cart>
+      <div style="position: static; height: 330px; width: 1400px;">
+        <!--<div class="col-lg-1  col-centered">-->
+          <div> <b>Select seats</b> </div>
+          <div>
+            <p>Seats in <b style="color:red">Red</b> are Reserved</p>
+            <p> Seats in <b style="color:green">Green</b>Green are empty</p>
+            <p>Seats in <b style="color:yellow">Rellow</b> are being selected</p>
+          </div>
+        <div *ngFor="let row of settings.rows; index as i">
+          <div class="btn-group" role="group" *ngFor="let col of settings.cols; index as j">
+            <button type="button" [ngClass]="getClassName(i,j)" [value]="i+j*rowLength + 1 " (click)="seatClick(getSeatNo(i,j), $event)" class="btn btn-default">
+                  
+              <!--<a title="{{getSeatNo(i,j)}}">{{getSeatNo(i,j)}}</a>-->
+        </button>
+          </div>
+        </div>
+        <!--</div>-->
+      </div>
+    </div>
+   
+  </div>  
+
+
+
+

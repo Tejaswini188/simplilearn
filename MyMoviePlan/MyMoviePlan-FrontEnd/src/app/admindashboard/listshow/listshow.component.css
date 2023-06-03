@@ -1,0 +1,15 @@
+/* Apply this to your `table` element. */
+#page {
+    border-collapse: collapse;
+ }
+ 
+ /* And this to your table's `td` elements. */
+ #page td {
+    padding: 0; 
+    margin: 0;
+ }
+
+ #page th {
+    padding: 0; 
+    margin: 0;
+ }

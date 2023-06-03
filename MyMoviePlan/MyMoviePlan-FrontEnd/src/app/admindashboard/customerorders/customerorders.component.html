@@ -1,0 +1,33 @@
+<div class="container">    
+<h4><strong>Customer Order Details</strong></h4> 
+<div class="text-left">
+  <button type="button" class="btn btn-link" ><a [routerLink]="['/admin']">Back to Dashboard</a></button>
+</div>
+<table class="table" *ngIf="orders">
+ <thead>
+   <tr >
+     <th>ID</th>
+     <th>Ticket</th>
+     <th>Price</th>
+     <th>Sub-Total</th>
+     <th> Total</th>
+     <th> Quantity</th>
+     <th> Created Date</th>
+     <th> Pay Details</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr  *ngFor="let order of orders">
+     <td>{{order.id}}</td>
+     <td>{{order.productName}}</td>
+     <td>{{order.price}}</td>
+     <td>{{order.subtotal}}</td>
+     <td>{{order.total}}</td>
+     <td>{{order.quantity}}</td>
+     <td>{{order.created_at | date: 'dd/MM/yyyy'}}</td>
+      <button type="button" class="btn btn-link" ><a [routerLink]="['/paydetails', order.id]">Pay Details</a></button>
+     
+   </tr>
+ </tbody>
+</table>
+</div>

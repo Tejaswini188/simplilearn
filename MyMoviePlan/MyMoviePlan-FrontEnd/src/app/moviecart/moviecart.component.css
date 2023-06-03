@@ -1,0 +1,15 @@
+.seat{
+    background: mediumseagreen;
+    height:10px;
+    width:10px;
+    display:block;   
+    }
+    .selectedSeat
+    { 
+    background: red;
+    }
+    .selectingSeat
+    { 
+    background: yellow; 
+    }
+    

@@ -1,0 +1,204 @@
+<div class="container">
+    <h2>Edit Show</h2>
+    <form [formGroup]="editshowForm" (ngSubmit)="onSubmit()">
+        <div class="form-row" >
+            <div class="form-group col-4">
+                
+                <label>Show Name</label>
+                <!--<input type="text" formControlName="showname"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f['showname'].errors }" />-->
+                <select  [(ngModel)]="showData"formControlName="showname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['showname'].errors }" >
+                    <option value="Morning Show">Morning Show</option>
+                    <option value="Matinee Show">Matinee Show</option>
+                    <option value="1st show">1st show</option>
+                    <option value="2nd show">2nd show</option>
+                </select>
+                <div *ngIf="submitted && f['showname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['showname'].errors['required']">Show Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label>Movie </label>
+                <div>
+                <select [compareWith]="compareFn" [(ngModel)]="movieData"  formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" >
+                    <option *ngFor="let movie of movieList"  [ngValue]="{movie}" >{{movie.moviename}}</option>
+                  </select>
+                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['name'].errors['required']">Movie is required</div>
+                </div>
+                        <pre>Current Movie: {{movieName}}</pre>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                
+                <label>Price</label>
+                <input type="text" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['price'].errors }" />
+                <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+                    <div *ngIf="f['price'].errors['required']">Price is required</div>
+                    <div *ngIf="f['price'].errors?.['pattern']">Please Enter numbers only</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="form-row" >
+            <div class="form-group col-4">
+                
+                <label>Theater</label>
+                <!--<input type="text" formControlName="theater" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['theater'].errors }" />-->
+                <select  [(ngModel)]="theaterData"formControlName="theater" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['theater'].errors }" >
+                    <option value="Westage Theater">Westage Theater</option>
+                    <option value="Diamond Theater">Diamond Theater</option>
+                    <option value="Century Theater">Century Theater</option>
+                    <option value="Prestige Theater">Prestige Theater</option>
+                    <option value="Fox Theaters">Fox Theaters</option>
+                    <option value="Motion Theater">Motion Theater</option>
+                    <option value="Tom Mboya Theater">Tom Mboya Theater</option>
+                    <option value="Oginga Theater">Oginga Theater</option>
+                 </select>
+                <div *ngIf="submitted && f['theater'].errors" class="invalid-feedback">
+                    <div *ngIf="f['theater'].errors['required']">Theater name is required</div>
+                </div>
+            </div>
+
+            
+            <div class="form-group col-4">
+                
+                <label>Screen</label>
+                <!--<input type="text" formControlName="screen" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['screen'].errors }" />-->
+                <select  [(ngModel)]="screenData"formControlName="screen" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['screen'].errors }" >
+                    <option value="Screen 1">Screen 1</option>
+                    <option value="Screen 2">Screen 2</option>
+                    <option value="Screen 3">Screen 3</option>
+                    <option value="Screen 4">Screen 4</option>
+                    <option value="Screen 5">Screen 5</option>
+                  </select>
+                <div *ngIf="submitted && f['screen'].errors" class="invalid-feedback">
+                    <div *ngIf="f['screen'].errors['required']">Screen name is required</div>
+                </div>
+            </div>
+
+            
+            <div class="form-group col-4">
+                
+                <label>Number of seats</label>
+                <input type="text" formControlName="seatstatus" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['seatstatus'].errors }" />
+                <div *ngIf="submitted && f['seatstatus'].errors" class="invalid-feedback">
+                    <div *ngIf="f['seatstatus'].errors['required']">Number of seats is required</div>
+                    <div *ngIf="f['seatstatus'].errors?.['pattern']">Please Enter numbers only</div>
+                </div>
+            </div>
+            </div>
+            <div class="form-row" >
+                <div class="form-group col-4">
+                    
+                    <label>Location</label>
+                    <input type="text" formControlName="location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['location'].errors }" />
+                    <div *ngIf="submitted && f['location'].errors" class="invalid-feedback">
+                        <div *ngIf="f['location'].errors['required']">Location is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    
+                    <label>City/Town</label>
+                    <!--<input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" />-->
+                    <select  [(ngModel)]="cityData"formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" >
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Patna">Patna</option>
+                        <option value="Ranchi">Ranchi</option>
+                      </select>
+                    <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                        <div *ngIf="f['city'].errors['required']">City/Town is required</div>
+                    </div>
+                </div>
+    
+                
+                <div class="form-group col-4">
+                    
+                    <label>Country</label>
+                    <input type="text" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['country'].errors }" />
+                    <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
+                        <div *ngIf="f['country'].errors['required']">Country is required</div>
+                    </div>
+                </div>
+              
+            </div>
+
+            
+         
+            <!-- 1. testing -->
+           <div class="form-row" > 
+            <div class="form-group col-4">
+                
+                <label>Duration</label>
+                <select  [(ngModel)]="durationData"formControlName="duration" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['duration'].errors }" *ngIf="durationGen" >
+                    <option [value]="durItem" *ngFor="let durItem of durationGen">{{durItem}}</option>                    
+                  </select>
+                  <div *ngIf="submitted && f['duration'].errors" class="invalid-feedback">
+                    <div *ngIf="f['duration'].errors['required']">Duration  is required</div>
+                </div>
+            
+            </div>       
+            <div class="form-group col-4">
+                <label>Date</label>
+                <div class="row">
+                    <div class="col-6">
+                      <ngb-datepicker #d1 [(ngModel)]="model1"  formControlName="date" [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"></ngb-datepicker>
+
+                      <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">
+                        <div *ngIf="f['date'].errors['required']">Date is required</div>
+                    </div>
+                  
+                      <hr/>
+                      <button class="btn btn-sm btn-outline-primary" (click)="model1 = today">Select Today</button>
+                      <hr/>
+                  
+                      <pre>Date: {{ model1 | json }}</pre>
+                      
+                    </div>
+                </div>
+                        
+               </div>
+               <div class="form-group col-3">
+                <label>Time</label>
+                <ngb-timepicker [(ngModel)]="time" formControlName="time" [meridian]="true" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['time'].errors }"></ngb-timepicker>
+               
+                                
+                                <div *ngIf="submitted && f['time'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['time'].errors['required']">Time is required</div>
+                                </div>
+                                   
+               </div>   
+               <div>
+                <pre>Time: {{ time }}</pre> 
+               </div>  
+                          
+            </div>
+            
+            
+                <!--<pre>Model: {{ model2 | json }}</pre>
+                <pre>State: {{ c2.status }}</pre>-->
+            
+                <!--<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>-->
+
+                  <!-- 1. testing -->
+                <pre>Output: {{ showDetailsSave }}</pre>
+                
+           <div></div><div></div><div></div>
+           <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Save
+            </button>
+            
+            <a routerLink="/admin" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+    </div>
+

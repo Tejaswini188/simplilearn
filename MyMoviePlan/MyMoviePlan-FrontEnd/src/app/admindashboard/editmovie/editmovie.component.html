@@ -1,0 +1,76 @@
+
+<div class="container">
+    <h2>Edit Movie</h2>
+    <form [formGroup]="editmovieForm" (ngSubmit)="onSubmit()">
+        <div class="form-row" >
+            <div class="form-group col-4">
+                
+                <label>Movie Name</label>
+                <input type="text" formControlName="moviename" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['moviename'].errors }" />
+                <div *ngIf="submitted && f['moviename'].errors" class="invalid-feedback">
+                    <div *ngIf="f['moviename'].errors['required']">Movie name is required</div>
+                </div>
+            </div>
+    
+            <div class="form-group col-4">
+                
+                <label>Movie Description</label>
+                <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }" />
+                <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                    <div *ngIf="f['description'].errors['required']">Movie description is required</div>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label>Movie Genre</label>
+                <div>
+                  <select [(ngModel)]="genreData"  formControlName="genre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['genre'].errors }" >
+                       <option *ngFor="let genre of genreList,let x=index"  [ngValue]="{genre}">{{genre.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && f['genre'].errors" class="invalid-feedback">
+                    <div *ngIf="f['genre'].errors['required']">Genre name is required</div>
+                </div>
+                <pre>Current genre: {{genreName}}</pre>
+                </div>
+            </div>
+            </div>
+            <div class="form-row" >
+                <div class="form-group col-4">
+                
+                    <label>Languages</label>
+                    <select  [(ngModel)]="languageData"formControlName="language" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['language'].errors }" >
+                        <option value="Hindi">Hindi</option>
+                        <option value="English">English</option>
+                        <option value="Swahili">Swahili</option>
+                        <option value="Dholuo">Dholuo</option>
+                      </select>
+                      <div *ngIf="submitted && f['language'].errors" class="invalid-feedback">
+                        <div *ngIf="f['language'].errors['required']">Language is required</div>
+                    </div>
+                
+                </div>
+            </div>
+    
+            <!--<div class="form-row" >
+             <div class="form-group col-4">
+                <label>Movie Image</label>
+     
+               <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+               <div><img [src]="url" *ngIf="url" width="100" height="100"></div>
+    
+                <input type="file" formControlName="image" class="form-control" (change)="onFileChanged($event)" [ngClass]="{ 'is-invalid': submitted && f['image'].errors }" />
+                <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+                    <div *ngIf="f['image'].errors['required']">Movie Image is required</div>
+                </div>
+            </div>
+        </div>-->
+      
+           <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Save
+            </button>
+            
+            <a routerLink="/admin" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+    </div>

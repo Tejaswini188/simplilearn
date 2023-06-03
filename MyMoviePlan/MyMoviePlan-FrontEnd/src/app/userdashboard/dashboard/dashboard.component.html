@@ -1,0 +1,58 @@
+<div class="container">
+
+    <p>Hi {{currentUser.username}}! Welcome to the user dashboard</p>  
+    
+    <nav class="navbar navbar-expand-lg navbar-light  w-100 navigation "  id="navbar" style="background-color: #e3f2fd;">
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sub-main-navbar"
+          aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse " id="sub-main-navbar">
+        <ul class="navbar-nav mx-auto">
+            <!-- Financial Details -->
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-delay="350"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Financial Details.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="nav-link" routerLink="/orderdetails">Order Details</a></li>
+          </ul>
+        </li>
+        <!-- Financial Details -->      
+    
+        </ul>
+        </div>
+       </nav>
+    
+       <h4>User Data</h4> 
+       <table class="table">
+        <thead>
+          <tr >
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th> Address</th>
+            <th> City</th>
+            <th> Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngIf="userData">
+            <td>{{userData.firstname!}}</td>
+            <td>{{userData.lastname}}</td>
+            <td>{{userData.roles[0].name}}</td>
+            <td>{{userData.email}}</td>
+            <td>{{userData.address}}</td>
+            <td>{{userData.city}}</td>
+            <td>{{userData.country}}</td>
+          </tr>
+        </tbody>
+      </table>
+       
+    </div>
+    <router-outlet></router-outlet>
+    

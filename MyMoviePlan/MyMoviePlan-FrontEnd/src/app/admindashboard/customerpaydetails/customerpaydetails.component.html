@@ -1,0 +1,36 @@
+
+<div class="container"  >
+    <h4><strong>Cusotmer Payment Details </strong></h4> 
+     <div *ngIf="paymentsData">
+    <div class="text-left">
+		<button type="button" class="btn btn-link" ><a [routerLink]="['/admin']">Back to Dashboard</a></button>
+	</div>
+    <table class="table">
+     <thead>
+       <tr >
+         <th>ID</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Ticket</th>
+         <th> Email</th>
+         <th> Tax</th>
+         <th> Amount Paid</th>
+         <th> Date Paid</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let payitem of paymentsData">
+         <td>{{payitem.id}}</td>
+         <td>{{payitem.firstname}}</td>
+         <td>{{payitem.lastname}}</td>
+         <td>{{payitem.description}}</td>
+         <td>{{payitem.email}}</td>
+         <td>{{payitem.tax}}</td>
+         <td>{{payitem.total}}</td>
+         <td>{{payitem.created_at | date: 'dd/MM/yyyy'}}</td>
+       </tr>
+     </tbody>
+   </table>
+</div>
+</div>
+
